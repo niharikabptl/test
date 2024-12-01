@@ -1,0 +1,43 @@
+name: Checking Runner info and Software Installations
+on:
+  push:
+    branches:
+      - main
+jobs:
+  check-versions:
+    runs-on: utility
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Display Runner Information
+        run: |
+          echo "OS Information:"
+          uname -a
+          echo "Disk Space:"
+          df -h
+          echo "Memory Info:"
+          free -h
+      - name: Check Software Versions
+        run: |
+          echo "Node.js Version:"
+          node -v
+          echo "npm Version:"
+          npm -v
+          echo "Python Version:"
+          python3 --version || python --version
+          echo "Java Version:"
+          java -version
+          echo "Git Version:"
+          git --version
+          echo "Docker Version:"
+          docker --version
+          echo "Terraform Version:"
+          terraform --version
+          echo "Packer Version:"
+          packer --version
+          echo "AWS CLI Version:"
+          aws --version
+          echo "kubectl Version:"
+          kubectl version --client
+          echo "Maven Version"
+          mvn --version
