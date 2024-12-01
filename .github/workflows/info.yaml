@@ -41,4 +41,4 @@ jobs:
           echo "kubectl Version:"
           kubectl version --client
           echo "Maven Version"
-          mvn --version
+          mvn -v
